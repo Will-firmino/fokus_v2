@@ -1,19 +1,27 @@
 import { Image, Text, View, StyleSheet } from "react-native";
 import { FokusButton } from "../components/FokusButton";
+import { router } from "expo-router";
 
 
 export default function Index() {
   return (
     <View style={styles.container}>
       <Image source={require('../assets/images/logo.png')} />
-      <View>
+      <View style={styles.inner}>
 
-        <Text>
-          Otimize sua produtividade,{'\n'}
-          mergulhe no que importa
+        <Text style={styles.title}>
+          Otimize sua {'\n'} produtividade,{'\n'}
+          <Text style={styles.bold}>
+            mergulhe no que {'\n'}importa
+          </Text>
         </Text>
+
         <Image source={require('../assets/images/tela_inicial.png')} />
-        <FokusButton title={'Quero iniciar!'} />
+        <FokusButton 
+          title={'Quero iniciar!'} 
+          onPress={() => router.navigate('/pomodoro')}
+          />
+          
 
       </View>
       <View style={styles.footer}>
@@ -37,20 +45,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#021123',
     gap: 40
   },
-  actions: {
-    paddingVertical: 24,
-    paddingHorizontal: 24,
-    backgroundColor: '#14448080',
-    width: '80%',
-    borderRadius: 32,
-    borderWidth: 2,
-    borderColor: '#144480',
-    gap: 32
+  inner: {
+    gap: 16,
   },
-  context: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center'
+  title: {
+    color: '#FFF',
+    textAlign: "center",
+    fontSize: 26,
+  },
+  bold: {
+    fontWeight: "bold",
   },
   footer: {
     width: '80%',
@@ -58,6 +62,6 @@ const styles = StyleSheet.create({
   footerText: {
     textAlign: 'center',
     color: '#98A0A8',
-    fontSize: 12.5
-  }
+    fontSize: 12.5,
+  },
 })
