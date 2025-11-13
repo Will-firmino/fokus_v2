@@ -19,7 +19,7 @@ export default function Index() {
         <Image source={require('../assets/images/tela_inicial.png')} />
         <FokusButton 
           title={'Quero iniciar!'} 
-          onPress={() => router.navigate('/pomodoro')}
+          onPress={() => router.navigate('/viacep')}
           />
           
 
